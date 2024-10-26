@@ -74,7 +74,7 @@ class OrderController extends Controller
         if ($request->hasFile('ImageP')) {
             $imageP = $request->file('ImageP');
             $imagePName = time().'Receipt'.Str::random(17) . '.' . $imageP->getClientOriginalExtension();
-            $imageP->move('assets1/img/Payment', $imagePName);
+            $imageP->move('assets/public/img/Payment', $imagePName);
         } else {
             $imagePName = NULL;
         }
@@ -170,14 +170,14 @@ class OrderController extends Controller
 
         if ($request->hasFile('ImageP')) {
             if (!is_null($order->proof_of_payment)) {
-                $imagePPath = 'assets1/img/Payment/' . $order->proof_of_payment;
+                $imagePPath = 'assets/public/img/Payment/' . $order->proof_of_payment;
                 if (file_exists($imagePPath)) {
                     unlink($imagePPath);
                 }
             }
             $imageP = $request->file('ImageP');
             $imagePName = time().'Receipt'.Str::random(17) . '.' . $imageP->getClientOriginalExtension();
-            $imageP->move('assets1/img/Payment', $imagePName);
+            $imageP->move('assets/public/img/Payment', $imagePName);
         } else {
             $imagePName = $order->proof_of_payment;
         }
@@ -206,7 +206,7 @@ class OrderController extends Controller
     {
         $order = Order::where('order_number', $id)->firstOrFail();
         if (!is_null($order->proof_of_payment)) {
-            $imagePPath = 'assets1/img/Payment/' . $order->proof_of_payment;
+            $imagePPath = 'assets/public/img/Payment/' . $order->proof_of_payment;
             if (file_exists($imagePPath)) {
                 unlink($imagePPath);
             }

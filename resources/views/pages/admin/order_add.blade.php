@@ -259,7 +259,7 @@
                 title: 'Oops...',
                 text: 'Please select a product before submitting!',
                 confirmButtonText: 'OK',
-                confirmButtonColor: '#35A5B1',
+                confirmButtonColor: '#feb300',
             });
         } else {
             if (this.checkValidity()) {
@@ -269,7 +269,7 @@
                     text: "Are you sure all the details are correct?",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#35A5B1',
+                    confirmButtonColor: '#feb300',
                     cancelButtonColor: '#AAA',
                     confirmButtonText: 'Yes, Save!',
                     cancelButtonText: 'Cancel',

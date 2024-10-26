@@ -84,6 +84,25 @@
 <?php endif;?>
 @include('layouts.public.footer')
 @include('layouts.public.script')
+<script>
+    @if(session('success'))
+    Swal.fire({
+        icon: "success",
+        title: "{{ session('success') }}",
+        text: "Order Number : {{ session('id') }} \nPlease save this Order Number to check your order status!",
+        showConfirmButton: true,
+        confirmButtonColor: '#feb300',
+        confirmButtonText: 'OK'
+    });
+    @elseif(session('error'))
+    Swal.fire({
+        icon: "error",
+        title: "{{ session('error') }}",
+        showConfirmButton: false,
+        timer: 3000
+    });
+    @endif
+</script>
 @endsection
 
 <body>

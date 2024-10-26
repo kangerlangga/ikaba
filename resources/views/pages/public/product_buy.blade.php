@@ -3,6 +3,7 @@
 <head>
     @include('layouts.public.head')
 </head>
+
 @section('content')
 <div id="preloader"></div>
 <style>
@@ -21,7 +22,7 @@
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #35A5B1;
+  border: 6px solid #feb300;
   border-top-color: #e7e4fe;
   border-radius: 50%;
   width: 60px;
@@ -37,88 +38,116 @@
   }
 }
 </style>
-<div class="pageWrapper">
-    @include('layouts.public.nav')
-    <!--Body Content-->
-    <div id="page-content">
-        <div class="container">
-            <div class="row my-3">
-                <div class="col-12 col-sm-12 col-md-8 col-lg-8 mb-4">
-                	<h2>Order Form</h2>
-                    <p>Please fill out the order form below to complete your purchase. Ensure all details are accurate for a smooth transaction process.</p>
-                	<div class="formFeilds contact-form form-vertical">
-                    <form method="POST" action="{{ route('buy.submit') }}" enctype="multipart/form-data" id="order_form" class="contact-form">
-                        @csrf
-                      <div class="row">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        	<div class="form-group">
-                                <input type="text" id="Name" name="Name" placeholder="Name" value="{{ old('Name') }}" required>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                        	<div class="form-group">
-                                <input type="email" id="Email" name="Email" placeholder="Email" value="{{ old('Email') }}" required>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <input type="phone" id="Phone" name="Phone" placeholder="Phone Number" value="{{ old('Phone') }}" required>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <input type="text" id="Address" name="Address" placeholder="Address" value="{{ old('Address') }}" required>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <input type="number" min="1" max="{{ $DetailProduct->stock_products }}" id="Quantity" name="Quantity" placeholder="Quantity" value="{{ old('Quantity') }}" required>
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <input type="text" id="Method" name="Method" placeholder="Payment Method" value="{{ old('Method') }}">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <input type="text" id="Notes" name="Notes" placeholder="Notes" value="{{ old('Notes') }}">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label for="Total">Total Payment</label>
-                                <input name="Total" value="" id="Total" readonly style="cursor: not-allowed">
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-                            <input type="hidden" name="Product" value="{{ $DetailProduct->code_products }}">
-                            <button type="submit" class="btn" style="background-color: #35A5B1; color: white;" id="sendOrderButton">Order Now</button>
-                        </div>
-                     </div>
-                     </form>
+@include('layouts.public.nav')
+<!-- Page Header Start -->
+<div class="page-header mb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-white">{{ $judul }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Contact Start -->
+<div class="contact">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>{{ $DetailProduct->name_products }}</h2>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <img class="blur-up lazyload" src="{{ url('') }}/assets/public/img/Product/{{ $DetailProduct->image_products }}" alt="Buy Now" style="max-height: 45vh"/>
+            </div>
+        </div>
+        <div class="row align-items-center contact-information">
+            <div class="col-md-6 col-lg-4">
+                <div class="contact-info">
+                    <div class="contact-icon">
+                        <i class="fa fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Stock</h3>
+                        <p>{{ $DetailProduct->stock_products }}</p>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-4 col-lg-4">
-                    <h2>Product Detail</h2>
-                	<hr/>
-                    <img class="blur-up lazyload" data-src="{{ url('') }}/assets1/img/Product/{{ $DetailProduct->image_p_products }}" src="{{ url('') }}/assets1/img/Product/{{ $DetailProduct->image_p_products }}" alt="Buy Now" style="max-height: 35vh"/>
-                    <br class="d-sm-none">
-                    <br class="d-sm-none">
-                    <img class="blur-up lazyload" data-src="{{ url('') }}/assets1/img/Product/{{ $DetailProduct->image_s_products }}" src="{{ url('') }}/assets1/img/Product/{{ $DetailProduct->image_s_products }}" alt="Buy Now" style="max-height: 35vh"/>
-                    <div class="open-hours mt-2">
-                    	<strong>{{ $DetailProduct->name_products }} | {{ $DetailProduct->code_products }}</strong>
-						<p>Rp {{ number_format($DetailProduct->price_products, 0, ',', '.') }}</p>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="contact-info">
+                    <div class="contact-icon">
+                        <i class="fa fa-comment-dots"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Price</h3>
+                        <p>Rp {{ number_format($DetailProduct->price_products, 0, ',', '.') }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="contact-info">
+                    <div class="contact-icon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Code</h3>
+                        <p>{{ $DetailProduct->code_products }}</p>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="row contact-form">
+            <div class="col-12">
+                <h4>Order Form</h4>
+                <p>Please fill out the order form below to complete your purchase. Ensure all details are accurate for a smooth transaction process.</p>
+                <form method="POST" action="{{ route('buy.submit') }}" enctype="multipart/form-data" id="order_form">
+                    @csrf
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="Name" name="Name" placeholder="Your Name" value="{{ old('Name') }}" required/>
+                        <p class="help-block text-danger">@error('Name') {{ $message }} @enderror</p>
+                    </div>
+                    <div class="control-group">
+                        <input type="email" class="form-control" id="Email" name="Email" placeholder="Your Email" value="{{ old('Email') }}" required/>
+                        <p class="help-block text-danger">@error('Email') {{ $message }} @enderror</p>
+                    </div>
+                    <div class="control-group">
+                        <input type="tel" class="form-control" id="Phone" name="Phone" placeholder="Your Phone" value="{{ old('Phone') }}" required/>
+                        <p class="help-block text-danger">@error('Phone') {{ $message }} @enderror</p>
+                    </div>
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="Address" name="Address" placeholder="Address" value="{{ old('Address') }}" required/>
+                        <p class="help-block text-danger">@error('Address') {{ $message }} @enderror</p>
+                    </div>
+                    <div class="control-group">
+                        <input type="number" min="1" max="{{ $DetailProduct->stock_products }}" class="form-control" id="Quantity" name="Quantity" placeholder="Quantity" value="{{ old('Quantity') }}" required/>
+                        <p class="help-block text-danger">@error('Quantity') {{ $message }} @enderror</p>
+                    </div>
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="Method" name="Method" placeholder="Payment Method" value="{{ old('Method') }}"/>
+                        <p class="help-block text-danger">@error('Method') {{ $message }} @enderror</p>
+                    </div>
+                    <div class="control-group">
+                        <input type="text" class="form-control" id="Notes" name="Notes" placeholder="Notes" value="{{ old('Notes') }}"/>
+                        <p class="help-block text-danger">@error('Notes') {{ $message }} @enderror</p>
+                    </div>
+                    <div class="control-group">
+                        <label for="Total">Total Payment</label>
+                        <input name="Total" value="" id="Total" placeholder="0" class="form-control" readonly style="cursor: not-allowed"/>
+                        <p class="help-block text-danger"></p>
+                    </div>
+                    <div>
+                        <input type="hidden" name="Product" value="{{ $DetailProduct->code_products }}">
+                        <button class="btn custom-btn" type="submit" id="sendOrderButton">Order Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <!--End Body Content-->
 </div>
+<!-- Contact End -->
 @include('layouts.public.footer')
 @include('layouts.public.script')
-</div>
 <script>
     let productPrice = 0;
     document.getElementById('Quantity').addEventListener('input', function() {
@@ -161,7 +190,7 @@
                 text: "Are you sure your order details are correct? Once submitted, your order cannot be changed.",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#35A5B1',
+                confirmButtonColor: '#feb300',
                 cancelButtonColor: '#AAA',
                 confirmButtonText: 'Yes, Order!',
                 cancelButtonText: 'Cancel',
@@ -179,7 +208,7 @@
 </script>
 @endsection
 
-<body class="template-index home2-default">
-@yield('content')
+<body>
+    @yield('content')
 </body>
 </html>

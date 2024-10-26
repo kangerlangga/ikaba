@@ -229,7 +229,7 @@
                 text: "Are you sure all the details are correct?",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#35A5B1',
+                confirmButtonColor: '#feb300',
                 cancelButtonColor: '#AAA',
                 confirmButtonText: 'Yes, Update!',
                 cancelButtonText: 'Cancel',

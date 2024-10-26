@@ -105,7 +105,7 @@
                                     </li>
                                     <li>
                                         <span class="name-specification">Product</span>
-                                        <span class="status-specification fw-bold">{{ $O->name_products }}</span>
+                                        <span class="status-specification fw-bold">{{ $O->code_products }}</span>
                                     </li>
                                     <li>
                                         <span class="name-specification">Quantity</span>
