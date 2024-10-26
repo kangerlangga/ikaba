@@ -40,32 +40,16 @@
                                     <div class="col-sm-12">
                                         <div class="form-group @error('ImageP') has-error has-feedback @enderror">
                                             <label for="ImageP">
-                                                Main Product Image (PNG, JPG, JPEG)
+                                                Product Image (PNG, JPG, JPEG)
                                                 <span class="d-sm-none"><br></span>
                                                 <span style="color: red;">Max 3 MB</span>
                                                 <span class="d-none d-sm-inline"> | </span>
                                                 <span class="d-sm-none"><br></span>
-                                                Standard Size 360px x 540px
+                                                Standard Size 1024px x 1024px
                                             </label>
 											<input type="file" class="form-control-file" id="ImageP" name="ImageP" accept=".png, .jpg, .jpeg" required>
                                             @error('ImageP')
                                             <small id="ImageP" class="form-text text-muted">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <div class="form-group @error('ImageS') has-error has-feedback @enderror">
-                                            <label for="ImageS">
-                                                Secondary Product Image (PNG, JPG, JPEG)
-                                                <span class="d-sm-none"><br></span>
-                                                <span style="color: red;">Max 3 MB</span>
-                                                <span class="d-none d-sm-inline"> | </span>
-                                                <span class="d-sm-none"><br></span>
-                                                Standard Size 360px x 540px
-                                            </label>
-											<input type="file" class="form-control-file" id="ImageS" name="ImageS" accept=".png, .jpg, .jpeg" required>
-                                            @error('ImageS')
-                                            <small id="ImageS" class="form-text text-muted">{{ $message }}</small>
                                             @enderror
                                         </div>
                                     </div>

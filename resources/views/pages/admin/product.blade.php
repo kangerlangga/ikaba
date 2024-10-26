@@ -6,33 +6,6 @@
 
 @section('content')
 <style>
-.card-img-container {
-    position: relative;
-}
-
-.card-img-container .img-1 {
-    transition: opacity 0.5s ease-in-out;
-}
-
-.card-img-container .img-2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    z-index: 1;
-}
-
-.card-img-container:hover .img-2 {
-    opacity: 1;
-}
-
-.card-img-container:hover .img-1 {
-    opacity: 0;
-}
-
 @media (max-width: 768px) {
     .page-header {
         display: flex;
@@ -57,7 +30,7 @@
                 <div class="page-header">
                     <h4 class="page-title">{{ $judul }}</h4>
                     <ul class="breadcrumbs">
-                        <a href="{{ route('product.add') }}" class="btn btn-round text-white ml-auto fw-bold" style="background-color: #35A5B1">
+                        <a href="{{ route('product.add') }}" class="btn btn-round text-white ml-auto fw-bold" style="background-color: #feb300">
                             <i class="fa fa-plus-circle mr-1"></i>
                             New Products
                         </a>
@@ -68,8 +41,7 @@
                     <div class="col-md-3">
                         <div class="card card-post card-round">
                             <div class="card-img-container position-relative">
-                                <img class="card-img-top img-1" src="{{ url('') }}/assets1/img/Product/{{ $P->image_p_products }}" alt="{{ $P->name_products }}">
-                                <img class="card-img-top img-2 position-absolute top-0 start-0 w-100 h-100" src="{{ url('') }}/assets1/img/Product/{{ $P->image_s_products }}" alt="{{ $P->name_products }}">
+                                <img class="card-img-top" src="{{ url('') }}/assets/public/img/Product/{{ $P->image_products }}" alt="{{ $P->name_products }}">
                             </div>
                             <div class="card-body">
                                 <div class="d-flex">

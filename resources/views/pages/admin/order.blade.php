@@ -57,7 +57,7 @@
                 <div class="page-header">
                     <h4 class="page-title">{{ $judul }}</h4>
                     <ul class="breadcrumbs">
-                        <a href="{{ route('order.add') }}" class="btn btn-round text-white ml-auto fw-bold" style="background-color: #35A5B1">
+                        <a href="{{ route('order.add') }}" class="btn btn-round text-white ml-auto fw-bold" style="background-color: #feb300">
                             <i class="fa fa-plus-circle mr-1"></i>
                             New Orders
                         </a>
