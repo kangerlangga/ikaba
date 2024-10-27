@@ -12,9 +12,9 @@
             <div class="navbar-nav ml-auto">
                 <a href="{{ route('home.publik') }}" class="nav-item nav-link {{ Request::routeIs('home.publik') ? 'active' : '' }}">Home</a>
                 <a href="{{ route('about.publik') }}" class="nav-item nav-link {{ Request::routeIs('about.publik') ? 'active' : '' }}">About</a>
-                <a href="{{ route('product.publik') }}" class="nav-item nav-link {{ Request::routeIs('product.publik') ? 'active' : '' }}">Product</a>
+                <a href="{{ route('product.publik') }}" class="nav-item nav-link {{ Request::is('product*') ? 'active' : '' }}">Product</a>
                 <a href="{{ route('contact.publik') }}" class="nav-item nav-link {{ Request::routeIs('contact.publik') ? 'active' : '' }}">Contact</a>
-                <a href="#" class="nav-item nav-link" data-toggle="modal" data-target="#checkOrder">Check Order</a>
+                <a href="#" class="nav-item nav-link {{ Request::is('check*') ? 'active' : '' }}" data-toggle="modal" data-target="#checkOrder">Check Order</a>
             </div>
         </div>
     </div>
@@ -32,11 +32,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                <!-- Input untuk Nomor Pesanan -->
                 <div class="form-group">
                     <input type="text" id="orderID" name="orderID" class="form-control" placeholder="Enter your Order Number">
                 </div>
-                <!-- Tombol untuk Check Order dan Check Payment -->
                 <div class="buttonSet d-flex flex-column flex-md-row">
                     <a href="#" id="checkOrderBtn" class="btn btn-warning text-white w-100 mb-2 mb-md-0 mx-md-1">Check Order</a>
                     <a href="#" id="checkPaymentBtn" class="btn btn-warning text-white w-100 mx-md-1">Check Payment</a>
@@ -45,3 +43,18 @@
         </div>
     </div>
 </div>
+<script>
+    document.getElementById('checkOrderBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+        const orderID = document.getElementById('orderID').value;
+        const url = `{{ route('check.order', '') }}/${orderID}`;
+        window.location.href = url;
+    });
+
+    document.getElementById('checkPaymentBtn').addEventListener('click', function(event) {
+        event.preventDefault();
+        const orderID = document.getElementById('orderID').value;
+        const url = `{{ route('check.receipt', '') }}/${orderID}`;
+        window.location.href = url;
+    });
+</script>

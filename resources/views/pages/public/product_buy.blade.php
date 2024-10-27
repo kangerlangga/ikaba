@@ -51,7 +51,6 @@
 </div>
 <!-- Page Header End -->
 
-<!-- Contact Start -->
 <div class="contact">
     <div class="container">
         <div class="section-header text-center">
@@ -66,10 +65,10 @@
             <div class="col-md-6 col-lg-4">
                 <div class="contact-info">
                     <div class="contact-icon">
-                        <i class="fa fa-map-marker-alt"></i>
+                        <i class="fa fa-box"></i>
                     </div>
                     <div class="contact-text">
-                        <h3>Stock</h3>
+                        <h3>Stock Product</h3>
                         <p>{{ $DetailProduct->stock_products }}</p>
                     </div>
                 </div>
@@ -77,10 +76,10 @@
             <div class="col-md-6 col-lg-4">
                 <div class="contact-info">
                     <div class="contact-icon">
-                        <i class="fa fa-comment-dots"></i>
+                        <i class="fas fa-money-bill-wave"></i>
                     </div>
                     <div class="contact-text">
-                        <h3>Price</h3>
+                        <h3>Price Product</h3>
                         <p>Rp {{ number_format($DetailProduct->price_products, 0, ',', '.') }}</p>
                     </div>
                 </div>
@@ -88,10 +87,10 @@
             <div class="col-md-6 col-lg-4">
                 <div class="contact-info">
                     <div class="contact-icon">
-                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-barcode"></i>
                     </div>
                     <div class="contact-text">
-                        <h3>Code</h3>
+                        <h3>Code Product</h3>
                         <p>{{ $DetailProduct->code_products }}</p>
                     </div>
                 </div>
@@ -145,7 +144,6 @@
         </div>
     </div>
 </div>
-<!-- Contact End -->
 @include('layouts.public.footer')
 @include('layouts.public.script')
 <script>
