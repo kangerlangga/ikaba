@@ -94,11 +94,11 @@
             <hr>
 
             <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" placeholder="Enter Your Email" value="{{ old('email') }}" class="form-control" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter Your Email" value="{{ old('email') }}" class="form-control" required>
             </div>
 
-            <label for="Password">Password</label>
+            <label for="password">Password</label>
             <div class="input-group mb-3">
                 <input type="password" name="password" id="password" class="form-control" placeholder="Enter Your Password" aria-label="Enter Password" aria-describedby="basic-addon2" required>
                 <div class="input-group-append">
