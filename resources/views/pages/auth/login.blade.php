@@ -31,7 +31,7 @@
 
     <!-- WEBSITE META -->
     <title>{{ $judul }} | Ikaba Official Website</title>
-    <link rel="icon" type="image/png" href="{{  url('') }}/assets/public/logo/logo.png">
+    <link rel="icon" type="image/png" href="{{  url('') }}/assets/logo/logo.png">
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
